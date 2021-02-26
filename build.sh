@@ -55,9 +55,9 @@ tensorflow_lite_c_android_arm64) bazel build $TFC_ARGS --config=android_arm64 $T
 	cp $TFC_OUTPUT $ARM64_DIR
 	chmod +w $ARM64_DIR/*.so
 	;;
-flex_delegate_dummy) bazel build $FLEX_ARGS //custom_flex:flex_delegate_dummy
+flex_delegate_dummy) bazel build $FLEX_ARGS //custom_flex/dummy:flex_delegate
 	mkdir -p $LINUX_DIR/
-	cp bazel-bin/custom_flex/libflex_delegate_dummy.so $LINUX_DIR
+	cp bazel-bin/custom_flex/dummy/libflex_delegate.so $LINUX_DIR/libflex_delegate_dummy.so
 	chmod +w $LINUX_DIR/*.so
 	;;
 chmodw) chmod +w -R $OUTPUT/*

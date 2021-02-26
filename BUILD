@@ -89,17 +89,3 @@ tflite_cc_shared_object(
         ],
     })
 )
-
-tflite_cc_shared_object(
-    name = "flex_delegate_dummy",
-    srcs = [
-        "dummy_delegate.cc",
-    ],
-    per_os_targets = True,
-    includes = [
-        ".",
-    ],
-    deps = [
-        clean_dep("//tensorflow/lite/c:common"),
-    ]
-)
