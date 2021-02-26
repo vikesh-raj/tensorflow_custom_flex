@@ -68,6 +68,7 @@ tflite_cc_shared_object(
     includes = [
         ".",
     ],
+    per_os_targets = True,
     deps = [
         "//tensorflow/lite/c:exported_symbols.lds",
         "//tensorflow/lite/c:version_script.lds",
@@ -87,4 +88,18 @@ tflite_cc_shared_object(
             clean_dep("//tensorflow/lite/c:common"),
         ],
     })
+)
+
+tflite_cc_shared_object(
+    name = "flex_delegate_dummy",
+    srcs = [
+        "dummy_delegate.cc",
+    ],
+    per_os_targets = True,
+    includes = [
+        ".",
+    ],
+    deps = [
+        clean_dep("//tensorflow/lite/c:common"),
+    ]
 )

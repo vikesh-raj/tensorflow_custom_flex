@@ -55,6 +55,13 @@ tensorflow_lite_c_android_arm64) bazel build $TFC_ARGS --config=android_arm64 $T
 	cp $TFC_OUTPUT $ARM64_DIR
 	chmod +w $ARM64_DIR/*.so
 	;;
+flex_delegate_dummy) bazel build $FLEX_ARGS //custom_flex:flex_delegate_dummy
+	mkdir -p $LINUX_DIR/
+	cp bazel-bin/custom_flex/libflex_delegate_dummy.so $LINUX_DIR
+	chmod +w $LINUX_DIR/*.so
+	;;
+chmodw) chmod +w -R $OUTPUT/*
+	;;
 *) echo "Unknown command"
    exit 1
    ;;
